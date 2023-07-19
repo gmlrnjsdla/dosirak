@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>도시락</title>
+    
+       
+    <script src="dosirak.js"></script>
+    <script src="index.js"></script>
+
+
+  </head>
+  <body>
+    
+
+    <h1 style="text-align: center;">💖 오늘의 도시락 💖</h1>
+    
+
+    <table  width="400" height="300">
+      <tr>
+        <th style="text-align: center; width: 130px;">반찬1</td>
+        <th style="text-align: center;width: 130px; ">반찬2</td>
+        <th style="text-align: center; width: 130px;">메인</td>
+      </tr>
+      <tr>
+        <td id="menu1" style=" text-align: center;"></td>
+        <td id="menu2" style=" text-align: center;"></td>
+        <td id="main" style=" text-align: center;"></td>
+      </tr>
+      <tr>
+        <td colspan="3" style="text-align: center;">
+          <input id="btnStart" type="button" onclick="start()" value = "START"  style= "color:green; margin-top: 10px; width: 200px; height: 30px;;"/>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" style="text-align: center;">
+          <input type="text" id="addMenuText">
+          <input id="" type="button" onclick="addMenu(1)" value = "메뉴 추가"/>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" style="text-align: center;">
+          <input type="text" id="addMainText">
+          <input id="" type="button" onclick="addMenu(2)" value = "메인 추가"/>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      function addMenu(gubun){
+        if(gubun == 1){
+          updatePropertiesFile('menu', document.getElementById('addMenuText').value);
+          document.getElementById('addMenuText').value = "";
+        }else if(gubun == 2){
+          updatePropertiesFile('main', document.getElementById('addMainText').value);
+          document.getElementById('addMainText').value = "";
+        } 
+        
+      }
+
+      window.addEventListener('DOMContentLoaded', displayProperties);
+    </script>
+
+<table width="400" >
+  <tr>
+    <th>메인</th>
+    <th>반찬</th>
+  </tr>
+  <tr>
+    <td style="vertical-align: top"><div id = "propertiesContainerMain"></div></td>
+    <td style="vertical-align: top"><div id = "propertiesContainerMenu"></div></td>
+  </tr>
+</table>
+
+  </body>
+</html>
